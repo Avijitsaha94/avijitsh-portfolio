@@ -1,0 +1,50 @@
+---
+slug: library-management
+title: Library Management System
+tagline: Advanced book catalog with filtering, search, and borrowing lifecycle management
+description: A scalable library management system with multi-parameter filtering, full-text search, borrowing lifecycle tracking, and admin dashboard for catalog management.
+thumbnail: /projects/library-management/thumbnail.png
+images:
+  - /projects/library-management/screenshot-1.png
+tech:
+  - React
+  - Node.js
+  - Express.js
+  - MongoDB
+  - Mongoose
+  - Tailwind CSS
+category: fullstack
+featured: true
+liveUrl: https://library-demo.vercel.app
+githubUrl: https://github.com/Avijitsaha94/library-management-frontend1
+status: live
+year: 2024
+problem: Library staff spent hours manually tracking which books were issued, overdue, or available. Students had no way to search the catalog or check availability without visiting the desk.
+solution: Built a self-service catalog with real-time availability, multi-filter search, and automated fine calculation for overdue books. Admin panel handles the full book lifecycle.
+result: Streamlined the borrowing process with automated due date tracking and fine calculations. Search response time under 200ms even with large catalogs.
+architecture: React SPA with context for state management. Express.js REST API with Mongoose for data modeling. MongoDB text indexes enable fast full-text search. Cron job checks overdue books daily.
+challenges:
+  - MongoDB text search এর relevance score fine-tune করা — title কে author এর চেয়ে বেশি weight দিতে হয়েছে
+  - Book return এর সময় fine calculation logic — weekend, holiday skip করা
+  - Large book list এ cursor-based pagination implement করা — offset pagination scale করে না
+  - Concurrent borrow request handle করা — race condition avoid করতে atomic transaction use করতে হয়েছে
+futurePlans:
+  - QR code based book tracking
+  - Online reservation system
+  - Email reminder for overdue books
+  - Mobile app (React Native)
+  - Integration with national library database
+lessons:
+  - MongoDB text indexes with weights provide surprisingly good search relevance
+  - Designing a clear borrowing state machine prevents bugs
+  - Fine calculation logic benefits from being a pure function (easy to test)
+metrics:
+  - label: Search Speed
+    value: "<200ms"
+  - label: Filter Options
+    value: "6+"
+  - label: Automation
+    value: "Auto fine calc"
+---
+
+A real-world library tool that replaces manual paper-based tracking with a fast, searchable, and automated digital system.

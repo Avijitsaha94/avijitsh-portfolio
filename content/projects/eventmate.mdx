@@ -1,0 +1,65 @@
+---
+slug: eventmate
+title: EventMate
+tagline: Production-grade social event platform with SSLCommerz payments, Google OAuth, and role-based dashboards
+description: A full-stack event discovery and booking platform connecting users with local events. Hosts can create and monetize events through secure payments. Features Google OAuth, SSLCommerz payment gateway (bKash, Nagad, card), role-specific dashboards, and real-time analytics.
+thumbnail: /projects/eventmate/thumbnail.png
+images:
+  - /projects/eventmate/screenshot-1.png
+  - /projects/eventmate/screenshot-2.png
+  - /projects/eventmate/screenshot-3.png
+tech:
+  - Next.js 14
+  - TypeScript
+  - Tailwind CSS
+  - Node.js
+  - Express.js
+  - MongoDB
+  - JWT
+  - Google OAuth
+  - SSLCommerz
+  - Cloudinary
+  - Nodemailer
+  - Recharts
+  - Vercel
+  - Render
+category: fullstack
+featured: true
+liveUrl:https://eventmate-beta.vercel.app
+githubUrl:https://github.com/Avijitsaha94/Eventmate
+status: live
+year: 2026
+problem: Local event discovery is fragmented — hosts have no easy way to monetize gatherings, and users struggle to find and book relevant local events. Existing platforms are either too complex or don't support local payment methods like bKash and Nagad.
+solution: Built a modular REST API with 6 domains (auth, users, events, bookings, reviews, payments) supporting three user roles (User, Host, Admin). Integrated SSLCommerz for local payment methods with server-side transaction validation. Built role-specific dashboards with Recharts data visualizations powered by MongoDB aggregation queries. Implemented dynamic search, multi-field filtering, and URL-synchronized pagination using Next.js App Router.
+result: Successfully deployed a production-grade platform with a complete CI/CD pipeline — Vercel for frontend, Render for backend, MongoDB Atlas for database. The platform supports the full event lifecycle from discovery to payment confirmation with automated email notifications via Nodemailer.
+architecture: Next.js 14 App Router frontend deployed on Vercel. Node.js/Express.js modular REST API deployed on Render. MongoDB Atlas cluster for data. JWT + Google OAuth for authentication. SSLCommerz for payments with server-side validation to prevent fraud. Cloudinary for image storage. API rate limiting with express-rate-limit for production security.
+challenges:
+  - SSLCommerz payment gateway integrate করা — server-side transaction validation implement করতে হয়েছে payment fraud prevent করতে
+  - Google OAuth callback এর পর JWT token generate করে frontend এ securely pass করা
+  - TypeScript দিয়ে Express middleware এ custom AuthRequest type conflict — RequestHandler cast করে fix করতে হয়েছে
+  - MongoDB aggregation query দিয়ে role-specific dashboard data বের করা — complex pipeline design করতে হয়েছে
+  - Next.js App Router এ useSearchParams দিয়ে URL-synchronized filtering implement করা — Suspense boundary properly handle করা
+  - Render free tier এ cold start problem — first request slow হওয়া manage করা
+futurePlans:
+  - Real-time notifications (Socket.io) when events update
+  - Mobile app (React Native)
+  - Event recommendation engine (ML-based)
+  - Calendar integration (Google Calendar, iCal)
+  - Refund management system
+  - Multi-currency support
+lessons:
+  - SSLCommerz payment server-side validation অত্যন্ত জরুরি — client-side validation alone payment fraud prevent করতে পারে না
+  - Modular REST API design (6 domains) project scale হলে অনেক সহজ হয় maintain করতে
+  - TypeScript + Express middleware এ custom types handle করার সঠিক pattern শিখেছি
+  - CI/CD pipeline setup করলে deployment অনেক সহজ এবং reliable হয়
+  - MongoDB aggregation pipeline দিয়ে complex business logic database level এ handle করা যায়
+metrics:
+  - label: API Domains
+    value: "6 modules"
+  - label: User Roles
+    value: "3 (User/Host/Admin)"
+  - label: Payment Methods
+    value: "bKash, Nagad, Card"
+---
+
+EventMate is a production-deployed full-stack platform demonstrating complex real-world features — payment gateway integration, multi-role access control, and data-driven dashboards — built with a scalable modular architecture.

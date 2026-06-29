@@ -1,0 +1,40 @@
+---
+slug: why-i-chose-nextjs
+title: Why I Chose Next.js for Every New Project
+summary: After building with plain React and Express, Next.js became my default. Here's why — and when I'd still choose something else.
+publishedAt: "2025-12-15"
+tags:
+  - Next.js
+  - React
+  - Web Development
+featured: true
+---
+
+When I started learning web development, I built everything in plain React with a separate Express backend. It worked. But as my projects grew, I kept solving the same problems over and over — routing, SSR, image optimization, API routes.
+
+Then I tried Next.js.
+
+## What Changed
+
+The first thing that hit me was the file-based routing. No more `react-router-dom` setup. You create a file, it becomes a route. Done.
+
+## Server Components Are a Game Changer
+
+Instead of `useEffect` for data fetching, I write:
+
+```tsx
+async function Page() {
+  const data = await fetchData()
+  return <Component data={data} />
+}
+```
+
+No loading states for initial data. No client-side fetch waterfalls. The data is just there when the page loads.
+
+## When I'd Still Choose Something Else
+
+Next.js isn't always the answer. For small internal tools, plain React + Vite is faster to set up. For pure WebSocket apps, Next.js adds overhead.
+
+## Final Thoughts
+
+Once Next.js clicks, you can build full-stack apps faster than ever before. If you're still on Create React App — give it a serious try.

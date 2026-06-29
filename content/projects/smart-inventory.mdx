@@ -1,0 +1,59 @@
+---
+slug: smart-inventory
+title: Smart Inventory & Order Management System
+tagline: Full-stack inventory system with real-time stock tracking, analytics dashboard, and role-based access
+description: A comprehensive inventory and order management system featuring real-time stock tracking, interactive analytics dashboard with Recharts, JWT authentication with RBAC, and 20+ REST API endpoints.
+thumbnail: /projects/smart-inventory/thumbnail.png
+images:
+  - /projects/smart-inventory/screenshot-1.png
+  - /projects/smart-inventory/screenshot-2.png
+tech:
+  - React 18
+  - TypeScript
+  - Redux Toolkit
+  - RTK Query
+  - Tailwind CSS
+  - Recharts
+  - Node.js
+  - Express.js
+  - MongoDB
+  - JWT
+  - Bcrypt
+category: fullstack
+featured: true
+liveUrl:https://smart-inventory-order-management-sy-two.vercel.app
+githubUrl:https://github.com/Avijitsaha94/Smart-Inventory-Order-Management-System
+status: live
+year: 2026
+problem: Small businesses struggle with manual inventory tracking, leading to stockouts, over-ordering, and zero visibility into sales trends. Existing solutions are too expensive or too complex for small teams.
+solution: Built a clean dashboard with role-based access control (Admin and User roles), real-time stock tracking with automatic updates on order creation/cancellation, and an interactive analytics dashboard using Recharts showing revenue, top products, and order analytics. RTK Query handles data fetching and caching for 40% faster page loads.
+result: Reduced stock discrepancy issues with live inventory counters. Automatic stock management prevents overselling through real-time inventory updates. RTK Query caching achieved 40% faster page loads compared to traditional REST calls with useEffect.
+architecture: React 18 frontend with Redux Toolkit and RTK Query for state management and caching. Node.js/Express.js REST API with 20+ endpoints. MongoDB for data persistence. JWT with bcrypt for secure authentication. Recharts for data visualization with MongoDB aggregation queries powering the analytics.
+challenges:
+  - RTK Query cache invalidation strategy ঠিক করা — order create/update হলে inventory আর analytics data automatically refetch করানো
+  - Role-based access control সব 20+ endpoint এ consistently apply করা — middleware design সঠিকভাবে architect করতে হয়েছে
+  - Real-time stock update concurrent orders এর সময় — race condition avoid করতে atomic MongoDB operations use করতে হয়েছে
+  - Recharts responsive design — different screen sizes এ chart properly resize করানো
+  - TypeScript strict mode এ Redux Toolkit এর complex typing — RootState, AppDispatch সঠিকভাবে type করা
+futurePlans:
+  - Barcode scanner integration (mobile camera)
+  - Email/SMS low-stock alerts
+  - Supplier management module
+  - Multi-warehouse support
+  - Export to PDF/Excel
+  - AI-powered demand forecasting
+lessons:
+  - RTK Query অনেক powerful — useEffect + fetch pattern এর চেয়ে cleaner এবং automatic caching দেয়
+  - Role-based middleware centralize করলে maintenance অনেক সহজ হয়
+  - MongoDB aggregation pipeline দিয়ে complex analytics বের করা possible without separate analytics service
+  - TypeScript strict mode initially কঠিন কিন্তু long-term maintainability অনেক বাড়ায়
+metrics:
+  - label: API Endpoints
+    value: "20+"
+  - label: Page Load Speed
+    value: "40% faster"
+  - label: User Roles
+    value: "Admin + User"
+---
+
+A real-world business tool that replaces manual inventory tracking with automated stock management, role-based access, and actionable analytics — built with a modern full-stack TypeScript setup.

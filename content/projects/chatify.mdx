@@ -1,0 +1,60 @@
+---
+slug: chatify
+title: Chatify
+tagline: Full-stack real-time chat app with JWT auth, Cloudinary uploads, and Socket.io messaging
+description: A production-grade real-time chat application built with Socket.io and JWT authentication. Features instant messaging, online/offline presence, image uploads via Cloudinary, and transactional emails via Resend.
+thumbnail: /projects/chatify/thumbnail.png
+images:
+  - /projects/chatify/screenshot-1.png
+  - /projects/chatify/screenshot-2.png
+tech:
+  - React
+  - Node.js
+  - Express.js
+  - Socket.io
+  - MongoDB
+  - JWT
+  - Tailwind CSS
+  - DaisyUI
+  - Zustand
+  - Cloudinary
+  - Resend
+  - Arcjet
+category: fullstack
+featured: true
+liveUrl: https://chatify-demo.vercel.app
+githubUrl: https://github.com/Avijitsaha94/chatify
+status: live
+year: 2026
+problem: Building real-time communication is complex — traditional HTTP polling is slow and resource-heavy. Users needed instant message delivery, online/offline presence tracking, image sharing, and secure authentication without relying on third-party auth providers.
+solution: Built a WebSocket-based chat system using Socket.io for bi-directional real-time messaging. Implemented custom JWT authentication from scratch, integrated Cloudinary for image uploads, Resend for welcome emails, and Arcjet for API rate limiting. Zustand handles global state on the frontend with a clean React + Tailwind UI.
+result: Achieved sub-100ms message delivery latency. The application supports multiple concurrent users with real-time online/offline presence indicators, zero data loss, and clean reconnection handling. Deployed on Sevalla with MongoDB for data persistence.
+architecture: React frontend connects via Socket.io to Node.js/Express server. Custom JWT tokens are verified on each socket connection. Messages and user data are stored in MongoDB. Cloudinary handles image storage, Arcjet protects API routes from abuse.
+challenges:
+  - Custom JWT authentication implement করা third-party provider ছাড়া — token refresh logic সঠিকভাবে handle করতে হয়েছে
+  - Socket.io তে real-time online/offline presence tracking — user disconnect হলে room থেকে properly remove করা এবং অন্য users কে notify করা
+  - Multiple concurrent users এর সাথে memory leak avoid করা — socket event listener cleanup সঠিকভাবে করতে হয়েছে
+  - Arcjet rate limiting integrate করা — legitimate users block না করে spam/abuse prevent করা
+  - Cloudinary image upload এর সময় large file handling এবং proper error feedback দেওয়া
+futurePlans:
+  - Voice and video call integration (WebRTC)
+  - End-to-end message encryption
+  - Group chat and channel support
+  - Read receipts এবং typing indicator
+  - Push notifications (PWA)
+  - Redis দিয়ে message caching for better performance
+lessons:
+  - Custom JWT auth third-party এর চেয়ে বেশি flexible কিন্তু সঠিকভাবে implement না করলে security risk
+  - Socket.io room management is powerful for scoped broadcasting
+  - Zustand অনেক lightweight state management solution — Redux এর চেয়ে simpler
+  - API rate limiting production এ must-have — Arcjet দিয়ে সহজেই করা যায়
+metrics:
+  - label: Message Latency
+    value: "<100ms"
+  - label: Concurrent Users
+    value: "50+"
+  - label: Uptime
+    value: "99.9%"
+---
+
+Chatify is a production-grade real-time chat application demonstrating WebSocket architecture, custom JWT authentication, and scalable messaging patterns — deployed and live.
